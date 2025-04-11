@@ -1,15 +1,26 @@
 
-
 import express from 'express';
 import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import fs from 'fs';
+import cors from 'cors';
 
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 const uploadDir = process.env.UPLOAD_PATH || 'uploads';
+
+// ⚠️ Replace this with your actual frontend origin
+const FRONTEND_ORIGIN = 'http://localhost:5173'; // or your actual domain
+
+app.use(cors({
+    origin: FRONTEND_ORIGIN,
+    methods: ['GET', 'POST'],
+    credentials: true,
+  }));
+
+
 
 // Ensure upload folder exists
 if (!fs.existsSync(uploadDir)) {
