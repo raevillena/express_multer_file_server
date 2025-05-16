@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 4000;
 const uploadDir = process.env.UPLOAD_PATH || 'uploads';
 
 // ⚠️ Replace this with your actual frontend origin
-const FRONTEND_ORIGIN = 'http://localhost:5173'; // or your actual domain
+const FRONTEND_ORIGIN = process.env.URL; // or your actual domain
 
 app.use(cors({
     origin: FRONTEND_ORIGIN,
