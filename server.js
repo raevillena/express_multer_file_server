@@ -13,13 +13,13 @@ const uploadDir = process.env.UPLOAD_PATH || 'uploads';
 
 // ⚠️ Replace this with your actual frontend origin
 const FRONTEND_ORIGIN = process.env.URL; // or your actual domain
+console.log('Frontend Origin:', FRONTEND_ORIGIN); 
 
 app.use(cors({
     origin: FRONTEND_ORIGIN,
     methods: ['GET', 'POST'],
     credentials: true,
   }));
-
 
 
 // Ensure upload folder exists
